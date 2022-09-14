@@ -13,6 +13,7 @@
 .inner {
     height: 100%;
     width: var(--default-layout-with-content);
+    padding: 0 var(--default-layout-horizontal-spacer);
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -103,4 +104,12 @@
 
 .custom-login {
     color: red;
+}
+
+.more-btn {
+    font-size: 2rem;
+    margin-left: 28px;
+    padding: 4px 8px;
+    background: transparent;
+    cursor: pointer;
 }
