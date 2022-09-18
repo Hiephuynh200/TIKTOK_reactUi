@@ -9,6 +9,7 @@ import { Wrapper as PopperWrapper } from '~/components/Popper';
 import { SearchIcon } from '~/components/Icons';
 import AccountItem from '~/components/AccountItem';
 import Styles from './Search.module.scss';
+import { useDebounce } from '~/hooks';
 
 const cx = classNames.bind(Styles);
 
@@ -18,17 +19,19 @@ function Search() {
     const [ShowResult, setShowResult] = useState(true);
     const [Loading, setLoading] = useState(false);
 
+    const debounce = useDebounce(SearchValue, 500);
+
     const inputRef = useRef();
 
     useEffect(() => {
-        if (!SearchValue.trim()) {
+        if (!debounce.trim()) {
             setSearchResult([]);
             return;
         }
 
         setLoading(true);
 
-        fetch(`https://tiktok.fullstack.edu.vn/api/users/search?q=${encodeURIComponent(SearchValue)}&type=less`)
+        fetch(`https://tiktok.fullstack.edu.vn/api/users/search?q=${encodeURIComponent(debounce)}&type=less`)
             .then((res) => res.json())
             .then((res) => {
                 setSearchResult(res.data);
@@ -37,7 +40,7 @@ function Search() {
             .catch(() => {
                 setLoading(false);
             });
-    }, [SearchValue]);
+    }, [debounce]);
 
     const handleClear = () => {
         setSearchValue('');
