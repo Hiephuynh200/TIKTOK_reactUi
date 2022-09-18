@@ -16,7 +16,7 @@ const publicRoutes = [
         component: Following,
     },
     {
-        path: '/profiles',
+        path: '/@:nickname',
         component: Profiles,
     },
     {
