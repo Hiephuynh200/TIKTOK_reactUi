@@ -1,9 +1,10 @@
 import classNames from 'classnames/bind';
 import Styles from './DefaultLayout.module.scss';
-import Header from '~/components/Layout/components/Header';
+import Header from '~/layouts/components/Header';
 import Sidebar from './Sidebar';
 
 const cx = classNames.bind(Styles);
+
 function DefaultLayout({ children }) {
     return (
         <div className={cx('wrapper')}>
