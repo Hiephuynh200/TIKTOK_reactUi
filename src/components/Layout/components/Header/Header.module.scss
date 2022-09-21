@@ -3,11 +3,17 @@
     --search-height: 46px;
     --search-top-spacer: 9px;
     --search-button-with: 52px;
-    width: 100%;
-    height: var(--default-layout-header-height);
-    box-shadow: 0px 1px 1px rgb(0 0 0 / 12%);
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
     display: flex;
     justify-content: center;
+    height: var(--default-layout-header-height);
+    width: 100%;
+    background-color: var(--white);
+    box-shadow: 0px 1px 1px rgb(0 0 0 / 12%);
 }
 
 .inner {
@@ -17,6 +23,10 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+}
+
+.logo-link {
+    display: flex;
 }
 
 .logo {
@@ -44,6 +54,7 @@
 }
 
 .action-btn {
+    position: relative;
     display: flex;
     align-items: center;
     color: #161823;
@@ -51,6 +62,21 @@
     background-color: transparent;
     padding: 4px 12px;
     cursor: pointer;
+}
+
+.badge {
+    position: absolute;
+    top: -3px;
+    right: 0px;
+    padding: 0px 6px;
+    height: 2rem;
+    line-height: 2rem;
+    border-radius: 10px;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--white);
+    font-family: var(--font-family);
+    background-color: var(--primary);
 }
 
 .user-avatar {
